@@ -1,4 +1,4 @@
-const Meal = require("../models/mealModel");
+const Service = require("../models/serviceModel");
 const path = require("path");
 const { log } = require("console");
 const multer = require("multer");
@@ -9,7 +9,7 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split("/")[1];
-    cb(null, `meal-${Date.now()}.${ext}`);
+    cb(null, `service-${Date.now()}.${ext}`);
   },
 });
 
@@ -27,26 +27,26 @@ const upload = multer({
   fileFilter: multerFilter,
 });
 
-exports.uploadMealPhoto = upload.single("image");
+exports.uploadServicePhoto = upload.single("image");
 
-exports.getMeals = (req, res) => {
-  Meal.find(req.query)
+exports.getServices = (req, res) => {
+  Service.find(req.query)
     .then((doc) => {
       res.status(200).json(doc);
     })
     .catch((err) => res.status(404).json(err));
 };
 
-exports.postNewMeal = (req, res) => {
+exports.postNewService = (req, res) => {
   // console.log(req.file);
   // console.log(req.body);
-  const newMeal = {
+  const newService = {
     ...req.body,
     image: req.file.filename,
   };
 
-  const meal = new Meal(newMeal);
-  meal
+  const service = new Service(newService);
+  service
     .save()
     .then((doc) => {
       res.status(201).json(doc);
@@ -54,30 +54,30 @@ exports.postNewMeal = (req, res) => {
     .catch((err) => res.status(404).json(err));
 };
 
-exports.getMealByID = (req, res) => {
+exports.getServiceByID = (req, res) => {
   // console.log(req.params);
   let { id } = req.params;
-  Meal.findById(id)
+  Service.findById(id)
     .then((doc) => {
       res.status(200).json(doc);
     })
     .catch((err) => res.status(404).json(err));
 };
 
-exports.deleteMeal = (req, res) => {
+exports.deleteService = (req, res) => {
   let { id } = req.params;
-  Meal.findByIdAndDelete(id)
+  Service.findByIdAndDelete(id)
     .then((doc) => {
       res.status(200).json(doc);
     })
     .catch((err) => res.status(404).json(err));
 };
 
-exports.updateMeal = (req, res) => {
+exports.updateService = (req, res) => {
   let { id } = req.params;
-  // query option {new: true} reikalingas, kad vartotojui būtų grąžintas atnaujintas dokumentas t.y. meal ir runValidators:true, kad atnaujinanat būtų validuojama pagal schemą
+  // query option {new: true} reikalingas, kad vartotojui būtų grąžintas atnaujintas dokumentas t.y. service ir runValidators:true, kad atnaujinanat būtų validuojama pagal schemą
 
-  Meal.findByIdAndUpdate(id, req.body, {
+  Service.findByIdAndUpdate(id, req.body, {
     new: true,
     runValidators: true,
   })

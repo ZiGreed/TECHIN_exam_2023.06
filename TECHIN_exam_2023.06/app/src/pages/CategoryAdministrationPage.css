@@ -1,0 +1,23 @@
+.categoryAdministrationPage {
+    box-sizing: border-box;
+}
+
+.administrationTables{
+    display: flex;
+    justify-content: space-around;
+}
+
+.adminTable {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.linkBtn {
+    background-color: #2742A1;
+    border-radius: 15px;
+    padding: 10px;
+    text-decoration: none;
+    color: aliceblue;
+    text-align: center;
+}
