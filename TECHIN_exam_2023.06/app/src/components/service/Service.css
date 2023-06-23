@@ -1,0 +1,22 @@
+.service {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 2px #F35932 solid;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+    max-width: 960px;
+}
+
+.servicejsx {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}

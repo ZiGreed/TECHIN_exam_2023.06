@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.formInputs {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+    border: 2px #F35932 solid;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.mb-3 {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+}
+
+button {
+    color: aliceblue;
+    background-color: #F35932;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    
+}

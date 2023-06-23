@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const mealRouter = require("./routes/mealRoutes");
-const menuRouter = require("./routes/menuRoutes");
+const serviceRouter = require("./routes/serviceRoutes");
+const categoryRouter = require("./routes/categoryRoutes");
 const userRouter = require("./routes/userRoutes");
 const cookieParser = require('cookie-parser')
 
@@ -21,8 +21,8 @@ app.use(express.json());
 app.use(cookieParser())
 
 // Router
-app.use("/api/meals", mealRouter);
-app.use("/api/menus", menuRouter);
+app.use("/api/services", serviceRouter);
+app.use("/api/categories", categoryRouter);
 app.use("/api/users", userRouter);
 
 module.exports = app;

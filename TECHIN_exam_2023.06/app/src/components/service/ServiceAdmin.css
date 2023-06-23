@@ -1,0 +1,9 @@
+.serviceTable {
+    border: 2px #F35932 solid;
+    border-radius: 15px;
+}
+
+.button {
+    cursor: pointer;
+    margin: 20px;
+}
